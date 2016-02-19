@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*.js'
+      'test/**/*.ts'
     ],
 
 
@@ -32,8 +32,13 @@ module.exports = function(config) {
 
     webpack: {
       resolve: {
-        extensions: ['', '.js']
-      }
+        extensions: ['', '.js', '.ts']
+      },
+      module: {
+        loaders: [
+          {test: /\.ts$/, loader: 'ts-loader', exclude: [/node_modules/]}
+        ]
+      },
     },
 
     // test results reporter to use
